@@ -4,7 +4,7 @@ function App() {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    const url = "https://public-api.wordpress.com/rest/v1.1/sites/webb21matte.wordpress.com/posts/?number=2&pretty=true"
+    const url = process.env.REACT_APP_API_URL
     console.log(url)
 
     fetch(url)
