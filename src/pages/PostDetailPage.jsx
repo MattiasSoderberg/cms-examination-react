@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 export default function PostDetailPage() {
-    const [post, setPost] = useState({})
+    const [post, setPost] = useState(null)
     const { id } = useParams()
     useEffect(() => {
         const url = process.env.REACT_APP_API_URL
@@ -29,9 +29,9 @@ export default function PostDetailPage() {
                             return <p key={tag[1].ID}>{tag[1].name}</p>
                         })}
                     </div>
+                    <Link to="/">Back</Link>
                 </>
             : <p>Laddar...</p>}
-            <Link to="/">Back</Link>
         </div>
     )
 }
