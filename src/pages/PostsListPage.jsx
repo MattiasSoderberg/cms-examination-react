@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function PostsListPage() {
     const [posts, setPosts] = useState([])
@@ -13,25 +14,14 @@ export default function PostsListPage() {
   
     return (
         <div>
-            <h1>Home</h1>
-            {posts.length > 0 && posts.map(post => {
+            <h1>Blogginlägg</h1>
+            {posts.length > 0 ? posts.map(post => {
                 return <div key={post.ID}>
-                    <h2>{post.title}</h2>
-                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                    <div>
-                        <h4>Kategorier</h4>
-                        {Object.entries(post.terms.category).map(cat => {
-                            return <p key={cat[1].ID}>{cat[1].name}</p>
-                        })}
-                    </div>
-                    <div>
-                        <h4>Taggar</h4>
-                        {Object.entries(post.tags).map(tag => {
-                            return <p key={tag[1].ID}>{tag[1].name}</p>
-                        })}
-                    </div>
+                    <Link to={`/${post.ID}`}><h2>{post.title}</h2></Link>
+                    
                 </div>
-            })}
+            })
+        : <p>Laddar inlägg...</p> }
         </div>
     )
 }
