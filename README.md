@@ -24,7 +24,7 @@ npm start
 
 ## Deploy
 
-The app is automaticly depolyed with Vercel on every push to main branch through a yaml script.
+The app is automatically deployed with Vercel on every push to main branch through a yaml script.
 
 ## CMS Wordpress.com
 
