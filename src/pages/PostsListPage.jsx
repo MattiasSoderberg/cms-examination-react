@@ -17,7 +17,7 @@ export default function PostsListPage() {
             <h2>Inlägg</h2>
             {posts.length > 0 ? posts.map(post => {
                 return <div key={post.ID}>
-                    <Link to={`/${post.ID}`}><h2>{post.title}</h2></Link>
+                    <Link to={`/${post.ID}`}><h3>{post.title}</h3></Link>
                     
                 </div>
             })

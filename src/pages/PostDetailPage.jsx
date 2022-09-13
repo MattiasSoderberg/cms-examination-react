@@ -11,6 +11,7 @@ export default function PostDetailPage() {
             .then(res => res.json())
             .then(data => setPost(data))
     }, [id])
+
     return (
         <div>
             {post ?
@@ -18,7 +19,7 @@ export default function PostDetailPage() {
                     <h2>{post.title}</h2>
                     <div dangerouslySetInnerHTML={{ __html: post.content }} />
                     <div>
-                        <h4>Kategorier</h4>
+                        <h3>Kategorier</h3>
                         {post.categories && Object.entries(post.categories).map(cat => {
                             return <p key={cat[1].ID}>{cat[1].name}</p>
                         })}
@@ -29,7 +30,7 @@ export default function PostDetailPage() {
                             return <p key={tag[1].ID}>{tag[1].name}</p>
                         })}
                     </div>
-                    <Link to="/">Back</Link>
+                    <Link to="/">Tillbaka</Link>
                 </>
             : <p>Laddar...</p>}
         </div>
