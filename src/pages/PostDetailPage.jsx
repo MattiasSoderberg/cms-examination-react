@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link as ReactLink, useParams } from 'react-router-dom'
+
+import { Heading, Link, Text, Stack, HStack, Box } from "@chakra-ui/react"
 
 export default function PostDetailPage() {
     const [post, setPost] = useState(null)
@@ -13,26 +15,28 @@ export default function PostDetailPage() {
     }, [id])
 
     return (
-        <div>
+        <Stack spacing="2rem">
             {post ?
                 <>
-                    <h2>{post.title}</h2>
-                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                    <div>
-                        <h3>Kategorier</h3>
-                        {post.categories && Object.entries(post.categories).map(cat => {
-                            return <p key={cat[1].ID}>{cat[1].name}</p>
-                        })}
-                    </div>
-                    <div>
-                        <h4>Taggar</h4>
-                        {post.tags && Object.entries(post.tags).map(tag => {
-                            return <p key={tag[1].ID}>{tag[1].name}</p>
-                        })}
-                    </div>
-                    <Link to="/">Tillbaka</Link>
+                    <Heading as="h2" size="xl">{post.title}</Heading>
+                    <Box className="HtmlContent" dangerouslySetInnerHTML={{ __html: post.content }} />
+                    <HStack spacing="5rem">
+                        <HStack>
+                            <Heading as="h3" size="sm">Kategorier</Heading>
+                            {post.categories && Object.entries(post.categories).map(cat => {
+                                return <Text key={cat[1].ID}>{cat[1].name}</Text>
+                            })}
+                        </HStack>
+                        <HStack>
+                            <Heading as="h3" size="sm">Taggar</Heading>
+                            {post.tags && Object.entries(post.tags).map(tag => {
+                                return <Text key={tag[1].ID}>{tag[1].name}</Text>
+                            })}
+                        </HStack>
+                    </HStack>
+                    <Link as={ReactLink} to="/">Tillbaka</Link>
                 </>
-            : <p>Laddar...</p>}
-        </div>
+                : <Heading as="h3" size="sm">Laddar...</Heading>}
+        </Stack>
     )
 }
