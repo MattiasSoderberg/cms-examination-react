@@ -15,7 +15,7 @@ npm install
 ```
 3. Create a .env file
 ```
-REACT_APP_API_URL="https://public-api.wordpress.com/rest/v1.1/sites/[your wordpress site].wordpress.com/posts/"
+REACT_APP_API_URL="https://public-api.wordpress.com/rest/v1.1/sites/webb21matte.wordpress.com/posts/"
 ```
 4. Run the app on localhost:3000
 ```
