@@ -15,7 +15,7 @@ npm install
 ```
 3. Create a .env file
 ```
-REACT_APP_API_URL=[url from admin]
+REACT_APP_API_URL="https://public-api.wordpress.com/rest/v1.1/sites/[your wordpress site].wordpress.com/posts/"
 ```
 4. Run the app on localhost:3000
 ```
@@ -25,7 +25,3 @@ npm start
 ## Deploy
 
 The app is automatically deployed with Vercel on every push to main branch through a yaml script.
-
-## CMS Wordpress.com
-
-Use the credentials recieved from admin to access wordpress.com
